@@ -9,7 +9,7 @@ var workdir = process.cwd();
 
 fs.readFile(path.join(workdir, '.rsyncignore'), function(err, buffer) {
   if (err && err.code === 'ENOENT') {
-    console.warn('need a .rsyncignore file');
+    console.warn('.rsyncignore file required, or use `rsync` directly');
     return;
   }
   
@@ -23,7 +23,7 @@ fs.readFile(path.join(workdir, '.rsyncignore'), function(err, buffer) {
 
   var command = util.format('rsync -avz %s %s %s', rules.join(' '), argv[0], argv[1]);
   console.log('exec:', command);
-  
+
   var execStream = exec(command);
   execStream.stdout.pipe(process.stdout);
   execStream.stderr.pipe(process.stderr);

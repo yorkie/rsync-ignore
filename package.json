@@ -1,6 +1,6 @@
 {
   "name": "rsync-ignore",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "rsync helper for ignoring files",
   "main": "index.js",
   "bin": {
