@@ -1,0 +1,22 @@
+{
+  "name": "rsync-ignore",
+  "version": "0.0.1",
+  "description": "rsync helper for ignoring files",
+  "main": "index.js",
+  "bin": {
+    "rsync2": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yorkie/rsync-ignore.git"
+  },
+  "keywords": [
+    "rsync"
+  ],
+  "author": "Yorkie Neil <yorkiefixer@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yorkie/rsync-ignore/issues"
+  },
+  "homepage": "https://github.com/yorkie/rsync-ignore"
+}
