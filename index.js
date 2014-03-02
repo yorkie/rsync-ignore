@@ -24,7 +24,7 @@ fs.readFile(path.join(src, '.rsyncignore'), function(err, buffer) {
       return util.format('--exclude "%s"', rule);
     });
 
-  var command = util.format('rsync -avz %s %s %s', rules.join(' '), argv._[0], argv._[1]);
+  var command = util.format('rsync -avz %s %s %s', rules.join(' '), src, dest);
   console.log('exec:', command);
 
   var execStream = exec(command);
