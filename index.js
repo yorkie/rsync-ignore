@@ -5,9 +5,12 @@ var path = require('path');
 var util = require('util');
 var exec = require('child_process').exec;
 var argv = require('minimist')(process.argv.slice(2));
-var workdir = process.cwd();
 
-fs.readFile(path.join(workdir, '.rsyncignore'), function(err, buffer) {
+var workdir = process.cwd();
+var src = argv._[0];
+var dest = argv._[1];
+
+fs.readFile(path.join(src, '.rsyncignore'), function(err, buffer) {
   if (err && err.code === 'ENOENT') {
     console.warn('.rsyncignore file required, or use `rsync` directly');
     return;
