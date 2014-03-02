@@ -4,7 +4,7 @@ var fs = require('fs');
 var path = require('path');
 var util = require('util');
 var exec = require('child_process').exec;
-var argv = process.argv.slice(2);
+var argv = require('minimist')(process.argv.slice(2));
 var workdir = process.cwd();
 
 fs.readFile(path.join(workdir, '.rsyncignore'), function(err, buffer) {
@@ -21,7 +21,7 @@ fs.readFile(path.join(workdir, '.rsyncignore'), function(err, buffer) {
       return util.format('--exclude "%s"', rule);
     });
 
-  var command = util.format('rsync -avz %s %s %s', rules.join(' '), argv[0], argv[1]);
+  var command = util.format('rsync -avz %s %s %s', rules.join(' '), argv._[0], argv._[1]);
   console.log('exec:', command);
 
   var execStream = exec(command);
